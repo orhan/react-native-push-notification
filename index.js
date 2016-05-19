@@ -140,6 +140,10 @@ Notifications._onRegister = function(token: String) {
 };
 
 Notifications._onNotification = function(data, isFromBackground = null) {
+	if (!data) {
+		return;
+	}
+
 	if ( isFromBackground === null ) {
 		if ( Platform.OS === 'ios' ) {
 			isFromBackground = ( AppState.currentState === 'background' );
